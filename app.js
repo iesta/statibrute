@@ -15,6 +15,10 @@ let passwordsExt = []
 for(let i = 0; i < passwords.length; i++){
     if(passwords[i].length>0) {
         passwordsExt.push(passwords[i])
+        if(passwords[i].indexOf(' ') !== -1) {
+            passwordsExt.push(passwords[i].toLowerCase().replace(/\s/g, '-'))
+            passwordsExt.push(passwords[i].toLowerCase().replace(/\s/g, '_'))
+        }
         passwordsExt.push(titleize(passwords[i]))
         passwordsExt.push(humanizeString(passwords[i]))
         passwordsExt.push(camelcase(passwords[i], {pascalCase: true}))
